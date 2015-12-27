@@ -130,7 +130,7 @@ uint8_t spi_test(void) {
 	return 0;
 }
 
-uint8_t spi_read(uint32_t addr) {
+uint8_t flash_spi_read(uint32_t addr) {
 	uint8_t sarr[4];
 	uint8_t rarrv;
 	sarr[0] = 0x03; /* Read */

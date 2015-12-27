@@ -23,7 +23,7 @@
 
 /* These are the things in spilib.c (generic helpers) */
 uint8_t spi_test(void);
-uint8_t spi_read(uint32_t addr);
+uint8_t flash_spi_read(uint32_t addr);
 void spi_readn(uint32_t addr, uint32_t len);
 void spi_spiop(uint32_t sbytes, uint32_t rbytes);
 uint8_t spi_probe_rdid(uint8_t *id);
