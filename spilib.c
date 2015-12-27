@@ -84,7 +84,7 @@ void spi_spiop(uint32_t sbytes, uint32_t rbytes) {
 	spi_spiop_end(rbytes);
 }
 
-uint8_t oddparity(uint8_t val) {
+static uint8_t oddparity(uint8_t val) {
 	val = (val ^ (val >> 4)) & 0xf;
 	val = (val ^ (val >> 2)) & 0x3;
 	return (val ^ (val >> 1)) & 0x1;

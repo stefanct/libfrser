@@ -523,7 +523,8 @@ void frser_main(void) {
 #endif
 
 		p_len = pgm_read_byte(&(op2len[op]));
-		for (i=0;i<p_len;i++) parbuf[i] = RECEIVE();
+		for (i=0;i<p_len;i++)
+			parbuf[i] = RECEIVE();
 
 		libfrser_idle(0);
 		/* These are the operations that need real acting upon: */
