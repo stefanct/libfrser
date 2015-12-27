@@ -4,5 +4,5 @@
 MAKEFILE_PATH:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 FRP := $(MAKEFILE_PATH)
 CFLAGS += -I$(FRP) -std=gnu99
-DEPS += $(FRP)/frser.h $(FRP)/frser-int.h $(FRP)/frser-flashapi.h $(FRP)/typeu.h $(FRP)/udelay.h frser-cfg.h $(FRP)/Makefile.frser
-SOURCES += $(FRP)/frser.c $(FRP)/udelay.c
+DEPS += $(FRP)/frser.h $(FRP)/frser-int.h $(FRP)/frser_ui.h $(FRP)/frser-flashapi.h $(FRP)/typeu.h $(FRP)/udelay.h frser-cfg.h $(FRP)/Makefile.frser
+SOURCES += $(FRP)/frser.c $(FRP)/frser_ui.c $(FRP)/udelay.c

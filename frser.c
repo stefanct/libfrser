@@ -23,6 +23,7 @@
 #include "frser-cfg.h"
 #include "frser-int.h"
 #include "frser-flashapi.h"
+#include "frser_ui.h"
 #include "udelay.h"
 #include "frser.h"
 #include "typeu.h"
@@ -470,6 +471,8 @@ void frser_main(void) {
 	jmp_buf uart_timeout;
 #endif
 	do_cmd_set_proto(SUPPORTED_BUSTYPES); // select any protocol you like, just select one.
+	libfrser_ui_init();
+	libfrser_idle(1);
 	for(;;) {
 		uint8_t parbuf[S_MAXLEN]; /* Parameter buffer */
 		uint8_t a_len,p_len;
@@ -522,6 +525,7 @@ void frser_main(void) {
 		p_len = pgm_read_byte(&(op2len[op]));
 		for (i=0;i<p_len;i++) parbuf[i] = RECEIVE();
 
+		libfrser_idle(0);
 		/* These are the operations that need real acting upon: */
 		switch (op) {
 			default:
@@ -608,5 +612,6 @@ void frser_main(void) {
 #endif
 
 		}
+		libfrser_idle(1);
 	}
 }
